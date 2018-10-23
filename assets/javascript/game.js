@@ -11,11 +11,14 @@ var lossesText = document.getElementById("losses-text");
 var guessesLeftText = document.getElementById("guessesleft-text");
 var userGuessesText = document.getElementById("userguesses-text");
 
+var userGuesses = [];
+
 // Function that is run when the user presses a key
 document.onkeyup = function (event) {
 
     //Determines which key was pressed
     var userGuess = event.key;
+    userGuesses.push(userGuess);
 
     //Randomly chooses a choice. This is the Computer's guess.
     var chars = "abcdefghijklmnopqrstuvwxyz";
@@ -44,5 +47,5 @@ document.onkeyup = function (event) {
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
     guessesLeftText.textContent = "Guesses Left: " + guesses_left;
-    userChoiceText.textContent = "Your Guesses so far: " + userGuess;
+    userChoiceText.textContent = "Your Guesses so far: " + userGuesses.join(', ');
 }
